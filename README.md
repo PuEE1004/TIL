@@ -1,62 +1,62 @@
-using System;
+시스템 사용;
 
-namespace Sparta_dungeon_Text_Game_
+네임스페이스 스파르타_던전_텍스트_게임_
 {
-    internal class Program
+    내부 클래스 프로그램
     {
 
-        static void mainLobby()
+        정적 공극 메인 로비()
         {
-            Console.Clear();
-            MyChar character = new MyChar(01, "Warrior", 10, 5, 100, 1500);
-            MyInventory inven = new MyInventory();
-            MyShop shop = new MyShop();
-            Console.WriteLine(" ");
-            Console.WriteLine("스파르타 마을 에 오신 여러분 환영합니다. ");
-            Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다. ");
-            Console.WriteLine(" ");
-            Console.WriteLine("1. 상태 보기");
-            Console.WriteLine("2. 인벤토리");
-            Console.WriteLine("3. 상점 ");
-            Console.WriteLine(" ");
-            Console.WriteLine("원하시는 행동을 입력해주세요. ");
-            string input = Console.ReadLine();
-            if (input == "1")
+            콘솔.클리어();
+            MyChar 캐릭터  = new MyChar(01, "Warrior", 10, 5, 100, 1500);
+            My Inventory inven = 새로운 My Inventory();
+            My Shop Shop = 새로운 My Shop();
+            콘솔.선 쓰기(""");
+            콘솔.WriteLine("스파르타 마을 에 오신 여러분 환영합니다. ");
+            콘솔.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다. ");
+            콘솔.선 쓰기(""");
+            콘솔.WriteLine("1") 상태 보기");
+            콘솔.WriteLine("2"). 인벤토리");
+            콘솔.WriteLine("3. 상점");
+            콘솔.선 쓰기(""");
+            콘솔.WriteLine("원하시는 행동을 입력해주세요. ");
+            string input = Console.선 읽기();
+            if (입력 == "1")
             {
-                character.ShowMyChar();
+                성격.MyChar() 표시;
                 if (character.menu == 0)
                 {
-                    mainLobby();
+                    메인 로비();
                 }
             }
-            else if (input == "2")
+            그렇지 않으면 (입력 == "2")
             {
-                inven.ShowInven();
+                인빈의Inven() 표시;
                 if (inven.menu == 0)
                 {
-                    mainLobby();
+                    메인 로비();
                 }
-                else if (input == "3")
+                그렇지 않으면 (입력 == "3")
                 {
-                    inven.Equip();
+                    인빈의장비();
                     if (inven.menu == 0)
                     {
-                        mainLobby();
+                        메인 로비();
                     }
-                    else if(input == "4")
+                    그렇지 않으면 (입력 == "4")
                     {
-                        shop.Showshop();
+                        샵.Showshop();
                         if (shop.menu == 0)
                         {
-                            mainLobby();
+                            메인 로비();
                         }
                     }
                 }
-                else
+                또 다른
                 {
-                    Console.WriteLine("잘못된 선택입니다.");
-                    Thread.Sleep(1000);
-                    mainLobby();
+                    콘솔.WriteLine("잘못된 선택입니다.");
+                    실.수면(1000);
+                    메인 로비();
                 }
             }
         }
@@ -69,23 +69,23 @@ namespace Sparta_dungeon_Text_Game_
 
     공개수업 마이인벤토리
     {
-        public List<string> Inven;
-        public int menu;
-        public int select;
+        공개 목록<string> Inven;
+        공개 메뉴
+        공개적으로 선택합니다.
 
-        public void ClassicInven()
+        퍼블릭 보이드 클래식 인벤()
         {
-            Inven = new List<string>();
-            string[] weapon =
+            Inven = 새 목록 <string>(;
+            string[] 무기 =
             {
                 "1", "무쇠갑옷", "Defend : +5", "무쇠로 만들어져 튼튼한 갑옷입니다. ", "2", "스파르타의 창", "Attack : +7", "스파르타의 전사들이 사용했다는 전설의 창입니다.", "3", "낡은 검", "Attack : +2", "쉽게 볼 수 있는 낡은 검 입니다." };
-            for (int i = 0; i < weapon.Length; i++)
+            (inti = 0; i < weapon.길이; i++)
             {
-                Inven.Add(weapon[i]);
+                인벤.Add(weapon[i]);
             }
         }
 
-        public void ShowInven()
+        퍼블릭 보이드 쇼인벤()
         {
             콘솔.클리어();
             Classic Inven();
@@ -111,34 +111,34 @@ namespace Sparta_dungeon_Text_Game_
                 콘솔.WriteLine("\t" + Inven[i] +"\t"+ Inven[i+1] +"\t"+ Inven[i+2] + "\t");
             }
 
-            Console.WriteLine(" ");
-            Console.WriteLine("0. 나가기");
-            Console.WriteLine("");
-            Console.WriteLine("원하시는 행동을 입력하시오");
-            Console.WriteLine(">>");
-            menu = int.Parse(Console.ReadLine());
+            콘솔.선 쓰기(""");
+            콘솔.WriteLine("0. 나가기");
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("원하시는 행동을 입력하시오");
+            콘솔.WriteLine(">"),
+            메뉴 = int구문 분석(Console).선 읽기();
         }
 
-        public void Equip()
+        공용 장치()
         {
-            Console.Clear();
-            ClassicInven();
-            Console.WriteLine("인벤토리 - 장착관리");
-            Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
-            Console.WriteLine("{아이템 목록}");
-            Console.WriteLine("{아이템 이름}  | {장비 효과} | {장비 설명} ");
-            for (int i = 0; i < Inven.Count; i += 3)
-                if (select == (i / 3 + 1))
+            콘솔.클리어();
+            Classic Inven();
+            콘솔.WriteLine("인벤토리 - 장착관리");
+            콘솔.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
+            콘솔.WriteLine("{아이템 목록}");
+            콘솔.WriteLine("{아이템 이름}  | {장비 효과} | {장비 설명} ");
+            (inti = 0; i < Inven)의 경우.카운트; i += 3)
+                (== (i / 3 + 1)을 선택)
                 {
-                    Console.WriteLine("[E]" + "[" + (i / 3 + 1) + "]" + "\t" + Inven[i] + "\t" + "\t" + Inven[i + 1] + "\t" + "\t" + "\t" + Inven[i + 2] + "\t");
+                    콘솔.줄 쓰기("[E]" + "[" + (i / 3 + 1) + "]" + "\t" + "Inven[i]" + "\t" + "Inven[i + 1] + "\t" + "\t" + "Inven[i + 2] + "\t");
                 }
-                else
+                또 다른
                 {
-                    Console.WriteLine("[" + (i / 3 + 1) + "]" + "\t" + "\t" + Inven[i] + "\t" + "\t" + "\t" + Inven[i + 1] + "\t" + "\t" + "\t" + Inven[i + 2] + "\t");
+                    콘솔.WriteLine("["]") + (i / 3 + 1) + """ + ""\t" + "\t" + "Inven[i + 1] + "\t" + "Inven[i + 2] + "\t");
                 }
 
-            Console.WriteLine(" ");
-            Console.WriteLine("0. 나가기");
+            콘솔.선 쓰기(""");
+            콘솔.WriteLine("0. 나가기");
 시스템 사용;
             콘솔.WriteLine("원하시는 행동을 입력하시오");
 네임스페이스 스파르타_던전_텍스트_게임_
@@ -201,5 +201,43 @@ namespace Sparta_dungeon_Text_Game_
             콘솔.WriteLine(">"),
             메뉴 = int구문 분석(Console).선 읽기();
         }
+    }
+}
+공개수업 마이차르
+{
+    공개 Lv {get; }
+    공용 문자열 Chad {get; }
+    공개 공격 {get; }
+    공개 변호 {get; }
+    공개 HP {get; }
+    public int Gold {get; }
+    공개 메뉴
+
+    public MyChar(int_Lv, string_Chad, int_Attack, int_Defense, int_HP, int_Gold)
+    {
+        Lv = _Lv;
+        Chad = _Chad;
+        공격 = _공격;
+        Defense = _Defense;
+        HP = _HP;
+        Gold = _Gold;
+    }
+
+    공용 공백 Show MyChar()
+    {
+        콘솔.클리어();
+        콘솔.WriteLine("상태 보기");
+        콘솔.쓰기 라인($"Lv: {Lv}");
+        콘솔.쓰기 라인($"Chad: {"전사"});
+        콘솔.WriteLine($"공격력: {Attack}");
+        콘솔.쓰기 라인($"방어력: {Defend}");
+        콘솔.쓰기 라인($"체력: {HP}");
+        콘솔.쓰기 선($"Gold: {Gold}");
+        콘솔.선 쓰기(""");
+        콘솔.WriteLine("0. 나가기");
+        콘솔.줄 쓰기("");
+        콘솔.WriteLine("원하시는 행동을 입력해주세요");
+        콘솔.WriteLine(">"),
+        메뉴 = int구문 분석(Console).선 읽기();
     }
 }
