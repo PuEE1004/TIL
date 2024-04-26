@@ -1,0 +1,503 @@
+첫번쨰
+메인
+시스템 사용;
+시스템을 사용합니다.구성요소 모델;
+시스템을 사용합니다.텍스트;
+using 스파르타던전;
+
+스파르타 던고엔
+{
+    내부 클래스 게임 프로그램
+    {
+        일병 My Char mychar;
+        비공개 목록<항목>재고;
+
+        비공개 목록 <아이템> 상점 재고;
+
+
+        공공 게임 프로그램()
+        {
+            텍스트 게임();
+        }
+
+        비공개 공백 텍스트 게임()
+        {
+
+
+            mychar = 새 MyChar("Rtan"), ("전사"), 1, 10, 5, 100, 3000),
+
+            인벤토리 = 새 목록<항목>(;
+
+            shop inventory = new list <Item>(;
+            재고품을 구입하다Add(new Item("수련자 갑옷", "수련에 도움을 주는 갑옷", ItemType.ARMER, 0, 5, 0, 1000);
+            재고품을 구입하다Add ( new Item("무쇠갑옷"), "튼튼한 갑옷 입니다", ItemType.ARMER, 0, 9, 0, 1200);
+            재고품을 구입하다Add(new Item("스파르타 갑옷", "스파르타의 전사들이 사용했다는 전설의 갑옷", ItemType.ARMER, 0, 15, 0, 3500);
+            재고품을 구입하다Add ( new Item("낡은 검"), "쉽게 볼수있는 낡은 검", ItemType.무기, 0, 2, 0, 600);
+            재고품을 구입하다Add(new Item("청동 도끼", "어디선가 사용했던거 같은 도끼", ItemType.무기, 0, 5, 0, 1500);
+            재고품을 구입하다Add(new Item("스파르타의 창", "스파르타의 전사들이 사용했다는 전설의 창", ItemType.무기, 0, 7, 0, 4000);
+
+
+        }
+        퍼블릭 보이드 스타트 게임()
+        {
+            콘솔.클리어();
+            콘솔 유틸리티.게임 헤드();
+            주 메뉴();
+        }
+
+        전용 void 메인 메뉴()
+        {
+            
+
+            콘솔.WriteLine("★★★★★★★★★★★★★★★★★★★★★★★★★★");
+            콘솔.WriteLine("스파르타 마을 에 오신 여러분 환영합니다. ");
+            콘솔.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다. ");
+            콘솔.WriteLine("★★★★★★★★★★★★★★★★★★★★★★★★★★");
+
+            콘솔.WriteLine("1") 상태 보기");
+            콘솔.WriteLine("2"). 인벤토리");
+            콘솔.WriteLine("3. 상점");
+            콘솔.선 쓰기(""");
+
+            int Decision = Console Utile.프롬프트 메뉴 결정(1, 3);
+
+            스위치(결정)
+            {
+                케이스 1:
+                    상태 메뉴();
+ 부서짐;
+                케이스 2:
+                    내 인벤토리 메뉴();
+ 부서짐;
+                케이스 3:
+                    Shop Menu();
+ 부서짐;
+            }
+            주 메뉴();
+
+        }
+
+        
+        private void StatusMenu()
+        {
+            콘솔.클리어();
+
+ 콘솔 유틸리티.ShowTitle("★상태 보기★");
+ 콘솔.WriteLine("캐릭터의 정보가 표시됩니다.");
+
+ 콘솔 유틸리티.텍스트 강조 표시("Lv.", mychar")레벨.ToString("00");
+            콘솔.선 쓰기(")");
+ 콘솔.WriteLine($"{mychar.이름}({mychar.Chad})",
+            통통 튀는Atk = 인벤토리.(항목 => 항목. 구비? 항목을 선택합니다.Atk : 0).합계();
+            intboundDef = 인벤토리를 지정합니다.(항목 => 항목. 구비? 항목을 선택합니다.Def : 0).합계();
+            Hp = 인벤토리를 바꿉니다.(항목 => 항목. 구비? 항목을 선택합니다.Hp : 0).합계();
+            //Tostring 문자로 바꿔주는 함수
+ 콘솔 유틸리티.텍스트 강조 표시("공격력:","(mychar)")를 인쇄합니다.Atk + bounsAtk).ToString(), 바운스Atk > 0 ? $"(+{bounsAtk}" : "");
+ 콘솔 유틸리티.텍스트 강조 표시("방어력:","(mychar)")를 인쇄합니다.Def + bounsDef).ToString(), boundDef > 0 ? $("+{boundsDef}": ""),
+ 콘솔 유틸리티.텍스트 강조 표시("체 력:","(mychar)")를 인쇄합니다.Hp + bounsHp).ToString(), bounsHp > 0?$("+{bounsHp}": "),
+
+ 콘솔 유틸리티.텍스트 강조 표시("골드", mychar)Gold.ToString();
+            콘솔.선 쓰기();
+
+ 콘솔.WriteLine("0") 뒤로가기");
+ 콘솔.선 쓰기(")");
+
+            스위치(Console Utile).프롬프트 메뉴 결정(0, 0)
+            {
+                케이스 0:
+                    주 메뉴();
+                    부서짐;
+            }
+        }
+        private void My inventory menu()
+        {
+            콘솔.클리어();
+
+ 콘솔 유틸리티.ShowTitle("★ 인벤토리 ★");
+ 콘솔.WriteLine("보유 중인 아이템 관리할 수 있습니다.");
+            콘솔.선 쓰기(")");
+ 콘솔.WriteLine("{아이템 목록");
+
+ (inti = 0; i < 인벤토리)의 경우.카운트; i++)
+            {
+                재고 조사[이]PrintItemStatDescription();
+            }
+
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("0. 나가기");
+            콘솔.WriteLine("1") 장착 관리");
+            콘솔.줄 쓰기("");
+
+            스위치(Console Utile).프롬프트 메뉴 결정(0, 1)
+            {
+                케이스 0:
+                    주 메뉴();
+ 부서짐;
+                케이스 1:
+                    Equipment Menu();
+ 부서짐;
+            }
+        }
+
+        전용 void EquipmentMenu()
+        {
+            콘솔.클리어();
+
+            콘솔 유틸리티.ShowTitle("★ 인벤토리 - 장착관리 ★");
+            콘솔.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("{아이템 목록}");
+ (inti = 0; i < 인벤토리)의 경우.카운트; i++)
+            {
+                재고 조사[이]PrintItemStatDescription(true, i + 1);
+            }
+
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("0. 나가기");
+
+            intkey input = Console Utile.Prompt Menu Decision (0, 인벤토리)카운트);
+
+            스위치(키 입력)
+            {
+                케이스 0:
+                    내 인벤토리 메뉴();
+ 부서짐;
+                기본값:
+                    인벤토리[키 입력 - 1]장비 상태 전환();
+                    Equipment Menu();
+ 부서짐;
+            }
+        }
+        private void ShopMenu()
+        {
+            콘솔.클리어();
+
+            콘솔 유틸리티.ShowTitle("★ 상점 ★");
+            콘솔.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("[보유 골드]");
+            콘솔 유틸리티.텍스트 강조 표시(""), mychar.Gold.ToString(), "G";
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("[아이템 목록]");
+ (inti = 0; i < shop inventory.카운트; i++)
+            {
+                재고[재고]를 구입하다PrintShop 항목설명();
+            }
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("1") 아이템 구매");
+            콘솔.WriteLine("0. 나가기");
+            콘솔.줄 쓰기("");
+            switch(ConsoleUtile).프롬프트 메뉴 결정(0, 1)
+            {
+                케이스 0:
+                    주 메뉴();
+ 부서짐;
+                케이스 1:
+                    메뉴 결정();
+ 부서짐;
+            }
+        }
+
+        private void Purdecide Menu(string? 프롬프트 = null)
+        {
+ if(prompt!= null)
+            {
+                콘솔.클리어();
+                콘솔 유틸리티.제목 표시(프롬프트);
+                케이스 1:
+                    상태 메뉴();
+ 부서짐;
+                케이스 2:
+                    내 인벤토리 메뉴();
+ 부서짐;
+                케이스 3:
+                    Shop Menu();
+ 부서짐;
+            콘솔.줄 쓰기("");
+            주 메뉴();
+ (inti = 0; i < shop inventory.카운트; i++)
+            {
+                재고[재고]를 구입하다PrintShop 항목 설명(true, i + 1);
+            }
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("0. 나가기");
+            콘솔.클리어();
+
+            콘솔 유틸리티.ShowTitle("★상태 보기★");
+            콘솔.WriteLine("캐릭터의 정보가 표시됩니다.");
+            스위치(키 입력)
+            콘솔 유틸리티.텍스트 강조 표시("Lv.", mychar")레벨.ToString("00");
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine($"{mychar.이름}({mychar.Chad})",
+            통통 튀는Atk = 인벤토리.(항목 => 항목. 구비? 항목을 선택합니다.Atk : 0).합계();
+            intboundDef = 인벤토리를 지정합니다.(항목 => 항목. 구비? 항목을 선택합니다.Def : 0).합계();
+            Hp = 인벤토리를 바꿉니다.(항목 => 항목. 구비? 항목을 선택합니다.Hp : 0).합계();
+                    {
+            콘솔 유틸리티.텍스트 강조 표시("공격력:","(mychar)")를 인쇄합니다.Atk + bounsAtk).ToString(), 바운스Atk > 0 ? $"(+{bounsAtk}" : "");
+            콘솔 유틸리티.텍스트 강조 표시("방어력:","(mychar)")를 인쇄합니다.Def + bounsDef).ToString(), boundDef > 0 ? $("+{boundsDef}": ""),
+            콘솔 유틸리티.텍스트 강조 표시("체 력:","(mychar)")를 인쇄합니다.Hp + bounsHp).ToString(), bounsHp > 0?$("+{bounsHp}": "),
+                    {
+            콘솔 유틸리티.텍스트 강조 표시("골드", mychar)Gold.ToString();
+            콘솔.선 쓰기();
+                        재고 조사추가(가게재고[키입력 - 1]);
+            콘솔.WriteLine("0") 뒤로가기");
+            콘솔.줄 쓰기("");
+                    또 다른
+            스위치(Console Utile).프롬프트 메뉴 결정(0, 0)
+                        구매 메뉴("Gold 가 부족합니다.");
+                케이스 0:
+                    주 메뉴();
+ 부서짐;
+        }
+    }
+        private void My inventory menu()
+    {
+            콘솔.클리어();
+        {
+            콘솔 유틸리티.ShowTitle("★ 인벤토리 ★");
+            콘솔.WriteLine("보유 중인 아이템 관리할 수 있습니다.");
+            콘솔.줄 쓰기("");
+            콘솔.WriteLine("{아이템 목록");
+            콘솔 유틸리티.ShowTitle("★ 인벤토리 ★");
+ (inti = 0; i < 인벤토리)의 경우.카운트; i++)
+            콘솔.줄 쓰기("");
+                재고 조사[이]PrintItemStatDescription();
+
+ (inti = 0; i < 인벤토리)의 경우.카운트; i++)
+콘솔
+
+
+시스템을 사용합니다.구성요소 모델.디자인;
+시스템을 사용합니다.텍스트;
+
+네임스페이스 스파르타던전
+{
+    내부 클래스 ConsoleUtile
+    {
+        공용 정적 무효 GameHead()
+        {
+            콘솔.출력 인코딩 = 인코딩.UTF8;
+            콘솔.WriteLine(" ██ ███████ ██████ █████ ██████ ████████ █████ ██ ");
+            콘솔.WriteLine(" ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ");
+            콘솔.WriteLine(" ██ ███████ ██████ ███████ ██████ ██ ███████ ██ ");   
+            콘솔.WriteLine("  █  █ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██  █  █  █ ");
+            콘솔.WriteLine(" ▀ ▀ ██ ███████ ██ ██ ██ ██ ██ ██ ██ ██ ██ ▀ ▀ ▀ ");  
+            콘솔.WriteLine(""") | | | \\/\/ / \\____ \\\__ \\\__ \\\ | \\__ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+            콘솔.WriteLine(" ██ ██████ ██ ██ ███ ██ ██████ ██████ ███████ ███ ██ ██ ");
+            콘솔.WriteLine("██ ██ ██ ██ ██ ██ ██ ████ ██ ██ ██ ██ ██ ████ ██ ██ ██ ██");
+            콘솔.WriteLine(" ██ ██ ██ ██ ██ ██ ██ ██ ██ ███ ██ ██ █████ ██ ██ ██ ██ ");
+            콘솔.WriteLine(" █  █ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██  █  █");
+            콘솔.WriteLine("▀ ▀ ██ ██████ ██████ ██ ████ ██████ ██████ ███████ ██ ████ ██ ▀ ▀");
+            콘솔.WriteLine("" ______________________________________________________________________________________________________________________________________________)
+            콘솔.WriteLine(" /___//___//___// ANYKEY를 눌러 시작합니다 /___//___//___//___/");
+            콘솔.WriteLine(" / ____//____//____//____//____/"),
+        }
+        public static int PromptMenu결정(int min, int max)
+        {
+ 한편 (사실)
+            {
+                콘솔.Write("원하시는 번호를 입력: ");
+ (int)Parse(콘솔)를 시도하는 경우.ReadLine(, outint Decision) & Decision >= min & Decision <= max) 
+                {
+                    반환 결정;
+                }
+                콘솔.WriteLine("잘못된 입력 입니다. 다시입력 하세요");
+            }
+        }
+
+        내부 정적 void ShowTitle(문자열 제목)
+        {
+            콘솔.ForegroundColor = ConsoleColor.짙은 녹색;
+            콘솔.선 쓰기(제목);
+            콘솔.색상 재설정();
+        }
+
+        public static void PrintText 강조 표시(strings s1, string s2, string s3 = "")
+        {
+            콘솔.쓰기(s1);
+            콘솔.ForegroundColor = ConsoleColor.블루;
+            콘솔.쓰기(s2);
+            콘솔.색상 재설정();
+            콘솔.라인 쓰기(s3);
+        }
+        public static int GetPrintableLength(string str)
+        {
+            int length = 0;
+            각각에 대하여(문자)
+            {
+ 만약에(char)유니코드 범주(c) == 시스템을 가져옵니다.세계화.유니코드 카테고리.기타편지)
+                {
+                    길이 += 2;
+                }
+                또 다른
+                {
+                    길이 += 1;
+                }
+            }
+
+            반환 길이;
+        }
+
+
+        공용 정적 문자열 PadRightForMixedText(string str, intotalLength)
+        {
+            inturrentLength = GetPrintableLength(str);
+            int padding = total Length - current Length;
+            반송 str패드라이트(str).길이+패딩);
+        }
+
+       
+    }
+}
+
+3번째
+캐릭터
+네임스페이스 스파르타던전
+{
+    내부 클래스 MyChar
+    {
+        공용 문자열 이름 {get; }
+        공용 문자열 Chad {get; }
+        public int 수준 {get; }
+        공개 공격 {get; }
+ 콘솔.선 쓰기(")");
+        Hp {get; }에서 공개됨
+        public int Gold {get; set; }
+        public MyChar(string name, string Chad, int level, inttk, intdef, intp, intgold)
+        {
+            이름 = 이름;
+            이것.차드 = 차드
+            레벨 = 레벨;
+            attk = attk;
+            Def = def;
+            Hp = hp;
+            Gold = Gold;
+        }
+    }
+}
+
+시스템 사용;
+4번째
+아이템
+네임스페이스 스파르타던전
+{
+    공개 열거 항목유형
+    {
+        무기,
+        갑옷
+    }
+    내부 클래스 항목
+    {
+        공용 문자열 이름 {get; }
+        공용 문자열 Desc {get; }
+
+        공용 항목 유형;
+
+        공개 공격 {get; }
+        publicint Def {get; }
+        Hp {get; }에서 공개됨
+        공개 가격 {get; }
+
+        공용 불이 장착됨 {get;private set; }
+        공용 불 은 PurDecision {get;private set; }
+
+        공개 항목(문자명, 문자열 설명, ItemType, intttk, intdef, int hp, int price, boolisPurDecide = false)
+        {
+            이름 = 이름;
+            Desc = desc;
+            Type = type;
+            attk = attk;
+            Def = def;
+            Hp = hp;
+            가격 = 가격;
+            =가 장착되어 있습니다.
+ 이것은 PurDecision = 는 PurDecision 입니다.
+        }
+
+        내부 void PrintItemStatDescription(숫자 =false, intx=인 부울)
+        {
+ 콘솔.쓰기("-");
+            if(번호 포함)
+            {
+                콘솔.ForegroundColor = ConsoleColor.다크 마젠타
+ 콘솔.쓰기($"{idx}");
+                콘솔.색상 재설정();
+            }
+            (장착된 경우)
+            {
+ 콘솔.Write("["");
+                콘솔.ForegroundColor = ConsoleColor.빨간색;
+ 콘솔.쓰기("E");
+                콘솔.색상 재설정();
+ 콘솔.Write(""]"),
+                콘솔.쓰기(ConsoleUtile).혼합 텍스트에 대한 PadRight(이름, 9);
+            }
+            그렇지 않으면 콘솔.쓰기(ConsoleUtile).혼합 텍스트에 대한 PadRight(이름, 12);
+
+ 콘솔.쓰기(") | ";
+
+ (Atk!= 0) 콘솔인 경우.쓰기($"공격력 {(Atk > 0 ? "+" : "")}{Atk}";
+ (Def!=0) 콘솔인 경우.쓰기($"방어력 {(Def > 0 ? "+" : "")}{Def}";
+ (Hp!= 0) 콘솔인 경우.쓰기($"체 력 {(Hp > 0? "+" : "")}{Hp}";
+
+ 콘솔.쓰기(") | ";
+
+            콘솔.WriteLine(ConsoleUtile).혼합 텍스트에 대한 패드 권한(Desc, 12);
+
+ 콘솔.쓰기(") | ";
+
+            if(는 PurDecide)
+            {
+ 콘솔.WriteLine("구매 완료");
+            }
+            또 다른
+            {
+ 콘솔 유틸리티.텍스트 강조 표시(""), 가격.ToString(), "G";
+            }
+        }
+
+
+        내부 void PrintShop 항목 설명(번호가 있는 부울 = false, intx = 0)
+        {
+ 콘솔.쓰기("-");
+            if(번호 포함)
+            {
+                콘솔.ForegroundColor = ConsoleColor.다크 마젠타
+ 콘솔.쓰기("{0}", idx);
+                콘솔.색상 재설정();
+            }
+            그렇지 않으면 콘솔.쓰기(ConsoleUtile).혼합 텍스트에 대한 PadRight(이름, 12);
+
+ 콘솔.쓰기(") | ";
+
+ (Atk!= 0) 콘솔인 경우.쓰기($"공격력 {(Atk > 0 ? "+" : "")}{Atk}";
+ (Def!=0) 콘솔인 경우.쓰기($"방어력 {(Def > 0 ? "+" : "")}{Def}";
+ (Hp!= 0) 콘솔인 경우.쓰기($"체 력 {(Hp > 0? "+" : "")}{Hp}";
+
+ 콘솔.쓰기(") | ";
+
+            콘솔.WriteLine(ConsoleUtile).혼합 텍스트에 대한 패드 권한(Desc, 12);
+
+ 콘솔.쓰기(") | ";
+
+            if (는 PurDecide)
+            {
+ 콘솔.WriteLine("구매 완료");
+            }
+            또 다른
+            {
+ 콘솔 유틸리티.텍스트 강조 표시(""), 가격.ToString(), "G";
+            }
+        }
+
+        내부 Void ToggleEquipStatus()
+        {
+            장착됨 =! 장착됨;
+        }
+
+        내부 공백 구매결정()
+        {
+            PurDecide = 진정한 입니다.
+        }
+    }
+}
